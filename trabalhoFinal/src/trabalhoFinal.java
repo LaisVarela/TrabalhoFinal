@@ -57,20 +57,24 @@ public class trabalhoFinal {
 
     public static int consultarCliente(String[] nome, String[] cpf, String[] dataNascimento) {
         int k = -1;
-        System.out.println("\nDigite o CPF do cliente: ");
-        System.out.print("=> ");
-        String cpfConsultar = input.nextLine();
-        for (int i = 0; i < 10; i++) {
-            if (cpfConsultar.equals(cpf[i])) {
-                k = i;
-                for (int j = k; j <= k; j++) {
-                    System.out.println("Nome: " + nome[j]);
-                    System.out.println("Data de Nascimento: " + dataNascimento[j]);
+        if (cpf[0] == null) {
+            System.out.println("\nNenhum cliente cadastrado!");
+        } else {
+            System.out.println("\nDigite o CPF do cliente: ");
+            System.out.print("=> ");
+            String cpfConsultar = input.nextLine();
+            for (int i = 0; i < 10; i++) {
+                if (cpfConsultar.equals(cpf[i])) {
+                    k = i;
+                    for (int j = k; j <= k; j++) {
+                        System.out.println("Nome: " + nome[j]);
+                        System.out.println("Data de Nascimento: " + dataNascimento[j]);
+                        break;
+                    }
+                } else if (i == 9 && k == -1) {
+                    System.out.println("Cliente Inexistente");
                     break;
                 }
-            } else if (i == 9 && k == -1) {
-                System.out.println("Cliente Inexistente");
-                break;
             }
         }
         return k;
